@@ -40,7 +40,13 @@ public class CategoriaServlet extends HttpServlet {
                 req.setAttribute("categoria", dao.buscarPorId(id));
                 mostrar("categorias/form", req, resp);
             } else {
-                req.setAttribute("categorias", dao.lista());
+                String buscar = req.getParameter("buscar");
+                
+                if(buscar != null && !buscar.isBlank()){
+                    req.setAttribute("categorias", dao.buscar(buscar.trim()));
+                } else {
+                    req.setAttribute("categorias", dao.lista());
+                }
                 mostrar("categorias/lista", req, resp);
             }
         } catch (SQLException e) {
