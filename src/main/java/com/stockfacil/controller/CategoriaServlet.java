@@ -66,7 +66,7 @@ public class CategoriaServlet extends HttpServlet {
                 return;
             }
 
-            // 1. Leer el formulario y pasarlo a un objeto
+            // 1. Leer el formulario y pasarlo a un objeto (PRUEBA GIT)
             Categoria c = new Categoria();
             String id = req.getParameter("idCategoria");
             c.setIdCategoria(id == null || id.isBlank() ? 0 : Integer.parseInt(id));
